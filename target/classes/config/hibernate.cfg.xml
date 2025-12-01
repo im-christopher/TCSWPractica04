@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Datos de conexión a tu base PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/empleados</property>
+        <property name="hibernate.connection.username">chris</property>
+        <property name="hibernate.connection.password">Chris2005</property>
+
+        <!-- Dialecto para PostgreSQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Mostrar SQL en consola -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Configuración del pool de conexiones -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+
+        <!-- Configuración de creación/actualización de esquema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!-- Configuración de transacciones -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- Mappings de tus entidades -->
+        <mapping class="org.uv.tcswpractica04.Empleados"/>
+        <mapping class="org.uv.tcswpractica04.Departamentos"/>
+        <!-- Agrega aquí más entidades si las hay -->
+    </session-factory>
+</hibernate-configuration>
